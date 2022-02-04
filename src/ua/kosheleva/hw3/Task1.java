@@ -6,9 +6,9 @@ public class Task1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String text = input.nextLine();
-        IsPalindrome(text);
+        isPalindrome(text);
     }
-    private static void IsPalindrome(String text){
+    private static void isPalindrome(String text){
         text = text.toLowerCase();
         text = text.replaceAll("[\\s]", " ");
         String reversedString = new StringBuffer(text).reverse().toString();

@@ -7,9 +7,9 @@ public class Task3 {
         int a = 0, b = 10;
         int secret = a + (int)(Math.random() * b);
         System.out.println("Введите число: ");
-        GuessNum(secret);
+        guessNum(secret);
     }
-    private static void GuessNum(int secret){
+    private static void guessNum(int secret){
         Scanner in = new Scanner(System.in);
         int guess = in.nextInt();
         while (guess > secret){

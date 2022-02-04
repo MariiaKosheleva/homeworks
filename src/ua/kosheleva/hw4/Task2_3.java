@@ -9,26 +9,26 @@ public class Task2_3 {
             array[i] = (1 + (int) (Math.random() * 10));
         }
         System.out.println(Arrays.toString(array));
-        System.out.println(PrimeNumbers(array) + " prime numbers and " + CompositeNumbers(array) +
+        System.out.println(primeNumbers(array) + " prime numbers and " + compositeNumbers(array) +
                 " composite numbers");
     }
 
-    private static int PrimeNumbers(int[] array) {
+    private static int primeNumbers(int[] array) {
         int primeCount = 0;
         int[] copiedArray = Arrays.copyOf(array, array.length);
         for (int j : copiedArray) {
-            if (IsPrime(j)) {
+            if (isPrime(j)) {
                 primeCount++;
             }
         }
         return primeCount;
     }
 
-    private static int CompositeNumbers(int[] array) {
+    private static int compositeNumbers(int[] array) {
         int compositeCount = 0;
         int[] copiedArray = Arrays.copyOf(array, array.length);
         for (int j : copiedArray) {
-            if (IsComposite(j)) {
+            if (isComposite(j)) {
                 compositeCount++;
             }
         }
@@ -36,7 +36,7 @@ public class Task2_3 {
     }
 
 
-    private static boolean IsPrime(int number) {
+    private static boolean isPrime(int number) {
         boolean primeNum = true;
         if (number != 1) {
             for (int i = 2; i < number; i++) {
@@ -51,7 +51,7 @@ public class Task2_3 {
         return primeNum;
     }
 
-    private static boolean IsComposite(int number) {
+    private static boolean isComposite(int number) {
         boolean compositeNum = false;
         if (number != 1) {
             for (int i = 2; i < number; i++) {

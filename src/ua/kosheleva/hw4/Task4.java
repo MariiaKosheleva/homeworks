@@ -9,10 +9,10 @@ public class Task4 {
             array[i] = (1 + (int) (Math.random() * 10));
         }
         System.out.println(Arrays.toString(array));
-        ReplacingEvenNumbersWithZeros(array);
+        replacingEvenNumbersWithZeros(array);
     }
 
-    private static void ReplacingEvenNumbersWithZeros(int[] array) {
+    private static void replacingEvenNumbersWithZeros(int[] array) {
         int[] copiedArray = Arrays.copyOf(array, array.length);
         for (int i = 0; i < copiedArray.length; i++) {
             if (copiedArray[i] % 2 == 0) {

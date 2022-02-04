@@ -10,11 +10,11 @@ public class Task1 {
             array[i] = (1 + (int) (Math.random() * 10));
         }
         System.out.println(Arrays.toString(array));
-        System.out.printf("Arithmetic mean: " + "%.2f", ArithmeticMean(array));
-        System.out.printf("\nGeometric mean:  " + "%.2f", GeometricMean(array));
+        System.out.printf("Arithmetic mean: " + "%.2f", arithmeticMean(array));
+        System.out.printf("\nGeometric mean:  " + "%.2f", geometricMean(array));
     }
 
-    private static double ArithmeticMean(int[] array) {
+    private static double arithmeticMean(int[] array) {
         double arithmetic = 0;
         int[] copiedArray = Arrays.copyOf(array, array.length);
         for (int j : copiedArray) {
@@ -24,7 +24,7 @@ public class Task1 {
         return arithmetic;
     }
 
-    private static double GeometricMean(int[] array) {
+    private static double geometricMean(int[] array) {
         int[] copiedArray = Arrays.copyOf(array, array.length);
         double geometric = 1;
         for (int j : copiedArray) {

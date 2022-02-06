@@ -24,7 +24,8 @@ public class Task1 {
         for (int i = 0; i < array.length; ++i) {
             if (i % 2 == 1) {
                 for (int j = 0; j < array[i].length; ++j) {
-                    System.out.print(-1 * array[i][j] + " ");
+                    array[i][j] = -1 * array[i][j];
+                    System.out.print(array[i][j] + " ");
                 }
             } else {
                 for (int j = 0; j < array[i].length; ++j) {

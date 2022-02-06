@@ -1,6 +1,6 @@
 package ua.kosheleva.hw5;
 
-import java.util.Arrays;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,8 +26,18 @@ public class Task3 {
         }
     }
 
-    private static void swapColumnsAndRows(int[][] array) {
-        int[][] arraySwapped = new int[array[0].length][array.length];
+    private static int[][] copyArray(int[][] array) {
+        int[][] copied = new int[array[0].length][array.length];
+        for (int i = 0; i < copied.length; i++) {
+            for (int j = 0; j < copied[i].length; j++) {
+                copied[i][j] = array[i][j];
+            }
+        }
+        return copied;
+    }
+
+    private static int[][] swapColumnsAndRows(int[][] array) {
+        int[][] arraySwapped = copyArray(array);
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 arraySwapped[j][i] = array[i][j];
@@ -39,5 +49,6 @@ public class Task3 {
             }
             System.out.println();
         }
+        return arraySwapped;
     }
 }

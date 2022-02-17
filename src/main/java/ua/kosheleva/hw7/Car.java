@@ -9,7 +9,7 @@ public class Car {
     //Для выполнения задачи: "Добавить конструктор в класс, который принимает на вход 3 параметра
     // (manufacturer, engine, colour), устанавливает их и дополнительно задает значение petrol = 100
 
-    /*public Car(String manufacturer, String engine, String color){
+    /*public test.Car(String manufacturer, String engine, String color){
         this.manufacturer = manufacturer;
         this.engine = engine;
         this.color = color;

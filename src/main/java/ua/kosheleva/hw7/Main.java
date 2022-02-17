@@ -35,7 +35,7 @@ public class Main {
         //Для выполнения задачи: "Добавить конструктор в класс, который принимает на вход 3 параметра
         // (manufacturer, engine, colour), устанавливает их и дополнительно задает значение petrol = 100
 
-        //Car car4 = new Car("BMW", "S54B32", "Blue");
+        //test.Car car4 = new test.Car("BMW", "S54B32", "Blue");
         //System.out.println("Car4 characteristics: " + car4);
 
     }

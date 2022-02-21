@@ -5,7 +5,7 @@ public class PassengerCar extends Car implements Recovery {
 
     public PassengerCar(int series, int year, String color) {
         super(series, year, color);
-        this.passengers = new Passenger[0];
+        this.passengers = new Passenger[3];
 
     }
 
@@ -16,12 +16,9 @@ public class PassengerCar extends Car implements Recovery {
     public void addPassengers(Passenger passenger) {
 
         if (passengers.length < 3) {
-            Passenger[] copy = new Passenger[passengers.length + 1];
-            System.arraycopy(passengers, 0, copy, 0, passengers.length);
-
-            copy[copy.length - 1] = passenger;
-            setPassengers(copy);
-            System.out.println("Add " + copy.length + " passenger(s)");
+            passengers[passengers.length - 1] = passenger;
+            setPassengers(passengers);
+            System.out.println("Add " + passengers.length + " passenger(s)");
         } else {
             System.out.println("You can't set more then 3 passengers");
         }
@@ -35,10 +32,5 @@ public class PassengerCar extends Car implements Recovery {
                 System.out.println(passenger);
             }
         }
-    }
-
-    @Override
-    public void refuel() {
-        super.refuel();
     }
 }

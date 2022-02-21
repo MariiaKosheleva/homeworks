@@ -29,7 +29,7 @@ public class Truck extends Car implements Recovery {
         super.movement();
         int tripDistance = 0;
         while (fuel > 0) {
-            fuel--;
+            fuel-= 2;
             tripDistance += 100;
             if (fuel % 50 == 0) {
                 System.out.println("You travelled: " + tripDistance + "km  \n" +

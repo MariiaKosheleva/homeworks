@@ -4,13 +4,13 @@ public class Car implements Recovery {
     protected int series;
     protected int year;
     protected String color;
-    protected double fuel;
+    protected double fuel = 140;
 
     public Car(int series, int year, String color) {
         this.series = series;
         this.year = year;
         this.color = color;
-        fuel = 140;
+        //fuel = 140;
     }
 
     public void movement() {
@@ -27,7 +27,7 @@ public class Car implements Recovery {
         System.out.println("\nYour trip is over, because you have no fuel");
     }
 
-    public void statistic() {
+    public void printStatistic() {
         System.out.println("Series: " + series + "\nYear: " + year + "\nColor: " + color + "\nFuel: " + fuel);
     }
 

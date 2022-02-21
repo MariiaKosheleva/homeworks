@@ -8,7 +8,7 @@ public class Main {
         System.out.println("\nMovement: ");
         car.movement();
         System.out.println("\nStatistic: ");
-        car.statistic();
+        car.printStatistic();
         System.out.println("\nRefuel your car: ");
         car.refuel();
 

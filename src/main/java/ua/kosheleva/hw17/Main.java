@@ -3,6 +3,7 @@ package ua.kosheleva.hw17;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Main {
@@ -15,6 +16,9 @@ public class Main {
         findTheCertainYearInList();
         System.out.println("\nTask4:");
         findMinNumber();
+        System.out.println("\nTask5:");
+        task5();
+
     }
 
     public static void sortStringArray() {
@@ -73,6 +77,41 @@ public class Main {
                 .reduce(Integer::min)
                 .orElse(0));
         System.out.println();
+    }
+
+    public static void task5() {
+        final List<Box> boxList = createCollectionOfBoxes(10);
+        System.out.println("Initial collection of boxes:");
+        for (Box box : boxList) {
+            System.out.println(box);
+        }
+        final double MIN_SIZE = 30.0;
+        final double MAX_SIZE = 50.0;
+        Limit<Box> isSuitableForSize = box -> box.getSize() <= (MIN_SIZE + Math.random() *
+                (MAX_SIZE - MIN_SIZE + 1));
+        System.out.println("\nSorted items from boxes after applying the limit and sorting:");
+        List<Item> itemsFromFilteredBoxes = boxList.stream()
+                .filter(isSuitableForSize::choise)
+                .flatMap(box -> box.getItemList().stream())
+                .sorted(Comparator.comparing(Item::getCost))
+                .collect(Collectors.toList());
+        System.out.println(itemsFromFilteredBoxes);
+    }
+
+    public static List<Box> createCollectionOfBoxes(int amountOfBoxes) {
+        List<Box> boxList = new ArrayList<>();
+        for (int i = 1; i <= amountOfBoxes; i++) {
+            boxList.add(new Box((Math.random() + 0.1) * 50, createCollectionOfItems(2)));
+        }
+        return boxList;
+    }
+
+    public static List<Item> createCollectionOfItems(int amountOfItems) {
+        List<Item> itemsList = new ArrayList<>();
+        for (int i = 1; i <= amountOfItems; i++) {
+            itemsList.add(new Item(Math.random() * 10, i));
+        }
+        return itemsList;
     }
 }
 

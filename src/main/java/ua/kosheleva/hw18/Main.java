@@ -39,6 +39,16 @@ public class Main {
         }
     }
 
+    private static void task2() throws Exception {
+        List<Box> boxList = new ArrayList<>();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            boxList.add(getBoxFromJSON());
+        }
+        for (Box box : boxList) {
+            System.out.println(box);
+        }
+    }
+
     private static Box getBoxFromXML() {
         Box box = new Box();
         for (int i = 0; i < nodeList.getLength(); i++) {
@@ -53,25 +63,31 @@ public class Main {
                 box.setUnit(element.getElementsByTagName("max-lifting-capacity").item(i).getAttributes().getNamedItem("unit").getTextContent());
                 box.setCargoName(element.getElementsByTagName("name").item(i).getTextContent());
                 box.setCargoClass(element.getElementsByTagName("class").item(i).getTextContent());
-                box.setDeliveryDateFromXML(element.getElementsByTagName("delivery-date").item(i).getTextContent());
+                box.setDeliveryDateFrom(element.getElementsByTagName("delivery-date").item(i).getTextContent());
             }
         }
         return box;
     }
 
-    private static void task2() throws Exception {
+    private static Box getBoxFromJSON() throws Exception {
         String jsonString = readJsonFile("src/main/resources/slide28.json");
         JSONObject obj = new JSONObject(jsonString);
         Box box = new Box();
-        box.setFrom(obj.getString("from"));
-        box.setMaterial(obj.getString("material"));
-        box.setColor(obj.getString("color"));
-        box.setMaxLiftingCapacity(obj.getJSONObject("max-lifting-capacity").getInt("value"));
-        box.setUnit(obj.getJSONObject("max-lifting-capacity").getString("unit"));
-        box.setCargoName(obj.getJSONObject("cargo").getString("name"));
-        box.setCargoClass(obj.getJSONObject("cargo").getString("class"));
-        box.setDeliveryDateFromJSON(obj.getString("delivery-date"));
-        System.out.println(box);
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            Node node = nodeList.item(i);
+            System.out.println("Current element: " + node.getNodeName());
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                box.setFrom(obj.getString("from"));
+                box.setMaterial(obj.getString("material"));
+                box.setColor(obj.getString("color"));
+                box.setMaxLiftingCapacity(obj.getJSONObject("max-lifting-capacity").getInt("value"));
+                box.setUnit(obj.getJSONObject("max-lifting-capacity").getString("unit"));
+                box.setCargoName(obj.getJSONObject("cargo").getString("name"));
+                box.setCargoClass(obj.getJSONObject("cargo").getString("class"));
+                box.setDeliveryDateFrom(obj.getString("delivery-date"));
+            }
+        }
+        return box;
     }
 
     private static String readJsonFile(String file) throws Exception {

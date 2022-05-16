@@ -18,11 +18,7 @@ public class Box {
     private String cargoClass;
     private LocalDateTime deliveryDate;
 
-    void setDeliveryDateFromXML( String value) {
-        setDeliveryDate(LocalDateTime.parse(value));
-    }
-
-    void setDeliveryDateFromJSON(String value) {
+    void setDeliveryDateFrom(String value) {
         setDeliveryDate(LocalDateTime.parse(value));
     }
 

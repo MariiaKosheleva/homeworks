@@ -16,7 +16,7 @@ public class Main {
             Invoice.setLimit(scanner.nextInt());
             ShopService shopService = new ShopService();
             shopService.getData("Product.csv");
-            shopService.getAnaliticalInfomation();
+            shopService.getAnalyticalInformation();
         } else {
             System.out.println("Limit value isn't valid!");
         }

@@ -2,7 +2,7 @@ package ua.kosheleva.module2.services;
 
 import ua.kosheleva.module2.models.Invoice;
 import ua.kosheleva.module2.models.Product;
-import ua.kosheleva.module2.utils.AnaliticalData;
+import ua.kosheleva.module2.utils.AnalyticalData;
 import ua.kosheleva.module2.utils.FileUtils;
 
 import java.util.ArrayList;
@@ -44,8 +44,8 @@ public class ShopService {
         return invoice;
     }
 
-    public void getAnaliticalInfomation(){
-        final AnaliticalData analiticalData = new AnaliticalData();
+    public void getAnalyticalInformation(){
+        final AnalyticalData analiticalData = new AnalyticalData();
         System.out.println("\nAmount of sold telephones: " + analiticalData.soldProductsByCategories(listOfInvoices, "Telephone"));
         System.out.println("\nAmount of sold television: " + analiticalData.soldProductsByCategories(listOfInvoices, "Television"));
         System.out.println();

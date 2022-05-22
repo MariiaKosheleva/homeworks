@@ -13,6 +13,7 @@ import java.util.Objects;
 
 public class FileUtils {
     private final HashMap<String, Integer> featureNamesMap = new HashMap<>();
+
     public List<Product> readCsvFile(String fileName) {
         List<Product> products = new ArrayList<>();
         int indexOfLineForFindingError = 0;
@@ -25,14 +26,12 @@ public class FileUtils {
                     products.add(createProductsForOrder(features));
                 }
             } else {
-               throw new NoInformationException("File is empty!");
+                throw new NoInformationException("File is empty!");
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("File not found");
-            System.exit(-1);
         } catch (NoInformationException e) {
             System.out.println(e.getMessage() + "Not enough data in line: " + indexOfLineForFindingError);
-            System.exit(-1);
         } catch (Exception e) {
             e.getStackTrace();
         }

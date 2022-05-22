@@ -7,6 +7,7 @@ import ua.kosheleva.module2.utils.FileUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 
@@ -16,8 +17,8 @@ public class ShopService {
 
     public void getData(String fileName) {
         FileUtils fileUtils = new FileUtils();
-        ArrayList<Product> products = (ArrayList<Product>) fileUtils.readCsvFile(fileName);
-        createListOfInvoices(products);
+        List<Product> products = fileUtils.readCsvFile(fileName);
+        createListOfInvoices((ArrayList<Product>) products);
         fileUtils.logOrdersInfo(listOfInvoices);
     }
 

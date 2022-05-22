@@ -27,16 +27,16 @@ public class Invoice {
     }
 
     public static void setLimit(double inputLimit) throws IllegalAccessException {
-        if(limit < 0){
+        if (limit < 0) {
             throw new IllegalArgumentException("The limit must be more than 0!");
         }
         Invoice.limit = inputLimit;
     }
 
-    public void setType(){
-        if(countCheckSum() > limit){
+    public void setType() {
+        if (countCheckSum() > limit) {
             type = CheckType.WHOlE_SALE;
-        }else {
+        } else {
             type = CheckType.RETAIL;
         }
     }
@@ -45,21 +45,21 @@ public class Invoice {
         this.type = type;
     }
 
-    public int amountOfProducts(){
+    public int amountOfProducts() {
         return products.length;
     }
 
-    public double countCheckSum(){
+    public double countCheckSum() {
         return Arrays.stream(products)
                 .mapToDouble(Product::getPrice)
                 .sum();
     }
 
-    private String dateFormatter(){
+    private String dateFormatter() {
         return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(this.dateTime);
     }
 
-    private String outPutInfoAboutProducts(){
+    private String outPutInfoAboutProducts() {
         return Arrays.stream(products)
                 .map(Product::toString)
                 .collect(Collectors.joining(" "));

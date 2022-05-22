@@ -2,6 +2,7 @@ package ua.kosheleva.module2;
 
 import ua.kosheleva.module2.models.Invoice;
 import ua.kosheleva.module2.services.ShopService;
+
 import java.util.Scanner;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
         if (scanner.hasNextInt()) {
             Invoice.setLimit(scanner.nextInt());
             ShopService shopService = new ShopService();
-            shopService.getData("Product.csv");
+            shopService.getData("Products.csv");
             shopService.getAnalyticalInformation();
         } else {
             System.out.println("Limit value isn't valid!");

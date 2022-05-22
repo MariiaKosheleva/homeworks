@@ -2,6 +2,7 @@ package ua.kosheleva.module2.services;
 
 import ua.kosheleva.module2.models.Invoice;
 import ua.kosheleva.module2.models.Product;
+import ua.kosheleva.module2.utils.AnaliticalData;
 import ua.kosheleva.module2.utils.FileUtils;
 
 import java.util.ArrayList;
@@ -41,5 +42,25 @@ public class ShopService {
         Invoice invoice = new Invoice(productsArray, PersonService.createCustomer(), new Date());
         invoice.setType();
         return invoice;
+    }
+
+    public void getAnaliticalInfomation(){
+        final AnaliticalData analiticalData = new AnaliticalData();
+        System.out.println("\nAmount of sold telephones: " + analiticalData.soldProductsByCategories(listOfInvoices, "Telephone"));
+        System.out.println("\nAmount of sold television: " + analiticalData.soldProductsByCategories(listOfInvoices, "Television"));
+        System.out.println();
+        System.out.println("\nCheck with minimal sum: " + analiticalData.getCheckWithMinSum(listOfInvoices));
+        System.out.println();
+        System.out.println("\nSum of all checks: " + analiticalData.countSumOfAllInvoices(listOfInvoices));
+        System.out.println();
+        System.out.println("\nChecks with one type products: " + analiticalData.getChecksWithOneProductType(listOfInvoices));
+        System.out.println();
+        System.out.println("\nChecks with retail type: " + analiticalData.countChecksWithRetailType(listOfInvoices));
+        System.out.println();
+        System.out.println("\nThree first checks: " + analiticalData.getThreeFirstChecks(listOfInvoices));
+        System.out.println();
+        System.out.println("\nChecks with low_age type: " + analiticalData.getLowAgeChecks(listOfInvoices));
+        System.out.println();
+        System.out.println("\nSorted checks: " + analiticalData.getSortedChecks(listOfInvoices));
     }
 }

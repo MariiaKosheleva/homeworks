@@ -30,7 +30,7 @@ public class Invoice {
         if(limit < 0){
             throw new IllegalArgumentException("The limit must be more than 0!");
         }
-        limit = inputLimit;
+        Invoice.limit = inputLimit;
     }
 
     public void setType(){
@@ -49,7 +49,7 @@ public class Invoice {
         return products.length;
     }
 
-    private double countCheckSum(){
+    public double countCheckSum(){
         return Arrays.stream(products)
                 .mapToDouble(Product::getPrice)
                 .sum();
@@ -67,7 +67,7 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Date/time: " + dateFormatter() + "\nInvoice number: " + invoiceNum +
+        return "Date/time: " + dateFormatter() + "\nAmount of products: " + invoiceNum +
                 "\nCustomer information: " + customer.toString() + "\nCheckType: " + type +
                 "\nOrder information: " + outPutInfoAboutProducts() + "\nCheckSum: " + countCheckSum();
     }

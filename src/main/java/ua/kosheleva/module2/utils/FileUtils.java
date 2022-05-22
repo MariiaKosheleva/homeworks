@@ -14,7 +14,7 @@ import java.util.Objects;
 public class FileUtils {
     private final HashMap<String, Integer> featureNamesMap = new HashMap<>();
     public List<Product> readCsvFile(String fileName) {
-        ArrayList<Product> products = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
         int indexOfLineForFindingError = 0;
         try (BufferedReader bufferedReader = createBufferReader(fileName)) {
             String features;

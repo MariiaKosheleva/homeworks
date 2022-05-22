@@ -9,7 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AnaliticalData {
+public class AnalyticalData {
     public static final int AGE_LIMIT = 18;
 
     public int soldProductsByCategories(ArrayList<Invoice> invoices, String type) {

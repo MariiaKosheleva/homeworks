@@ -26,11 +26,11 @@ public class Invoice {
         invoiceNum = ++amountOfInvoices;
     }
 
-    public static void setLimit(double inputLimit) throws IllegalAccessException {
+    public static void setLimit(double inputLimit) {
+        Invoice.limit = inputLimit;
         if (limit < 0) {
             throw new IllegalArgumentException("The limit must be more than 0!");
         }
-        Invoice.limit = inputLimit;
     }
 
     public void setType() {
@@ -67,7 +67,7 @@ public class Invoice {
 
     @Override
     public String toString() {
-        return "Date/time: " + dateFormatter() + "\nAmount of products: " + invoiceNum +
+        return "\n\nDate/time: " + dateFormatter() + "\nAmount of products: " + amountOfProducts() +
                 "\nCustomer information: " + customer.toString() + "\nCheckType: " + type +
                 "\nOrder information: " + outPutInfoAboutProducts() + "\nCheckSum: " + countCheckSum();
     }

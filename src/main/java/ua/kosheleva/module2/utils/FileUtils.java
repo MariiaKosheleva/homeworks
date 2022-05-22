@@ -31,7 +31,7 @@ public class FileUtils {
         } catch (IOException e) {
             System.out.println("File not found");
         } catch (NoInformationException e) {
-            System.out.println(e.getMessage() + "Not enough data in line: " + indexOfLineForFindingError);
+            System.out.println(e.getMessage() + " in line: " + indexOfLineForFindingError);
         } catch (Exception e) {
             e.getStackTrace();
         }
@@ -50,43 +50,34 @@ public class FileUtils {
     private Product createTelephoneForOrder(String[] productFeatures) {
         return new Telephone(productFeatures[featureNamesMap.get("series")],
                 productFeatures[featureNamesMap.get("model")],
-                productFeatures[featureNamesMap.get("screenType")],
+                productFeatures[featureNamesMap.get("screen type")],
                 Double.parseDouble(productFeatures[featureNamesMap.get("price")]));
     }
 
     private Product createTelevisionForOrder(String[] productFeatures) {
         return new Television(productFeatures[featureNamesMap.get("series")],
                 Double.parseDouble(productFeatures[featureNamesMap.get("diagonal")]),
-                productFeatures[featureNamesMap.get("screenType")],
+                productFeatures[featureNamesMap.get("screen type")],
                 productFeatures[featureNamesMap.get("country")],
                 Double.parseDouble(productFeatures[featureNamesMap.get("price")]));
     }
 
     private void readHeaderRow(String header) throws NoInformationException {
         String[] headerNames = header.trim().split(",");
-        isHeaderRowWithoutNumbers(headerNames);
         for (int i = 0; i < headerNames.length; i++) {
-            featureNamesMap.put(headerNames[i].toLowerCase(), i);
-        }
-    }
-
-    private void isHeaderRowWithoutNumbers(String[] headerRow) throws NoInformationException {
-        for (String characteristicName : headerRow) {
-            if (characteristicName.matches(".*\\d.*")) {
-                throw new NoInformationException("Header hasn't enough info!");
-            }
+            featureNamesMap.put(headerNames[i], i);
         }
     }
 
     private static void isFeaturesEmpty(String[] headerNames) throws NoInformationException {
         for (String feature : headerNames) {
             if (feature.trim().isEmpty()) {
-                throw new NoInformationException("Not enough information!");
+                throw new NoInformationException("Not enough information");
             }
         }
     }
 
-    private BufferedReader createBufferReader(String fileName) throws FileNotFoundException {
+    private BufferedReader createBufferReader(String fileName) throws IOException {
         final ClassLoader loader = Thread.currentThread().getContextClassLoader();
         try {
             InputStream obj = Objects.requireNonNull(loader.getResourceAsStream(fileName));

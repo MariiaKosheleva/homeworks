@@ -1,7 +1,6 @@
 package ua.kosheleva.module2.models;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class Customer {

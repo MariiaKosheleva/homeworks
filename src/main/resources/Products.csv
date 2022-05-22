@@ -1,11 +1,11 @@
 type,series,model,diagonal,screen type,country,price
-Telephone,S-10,Samsung,none,QLED,none,200
-Telephone,11-ProMax,Iphone,none,IPS,none,920
-Telephone,J7,Samsung,none,QLED,none,630
-Telephone,Redmi-9A,Xiaomi,none,IMX-989,none,445
-Telephone,M-32,Samsung,none,LCD,none,315
-Television,LG-217,none,25,LED,China,1900
-Television,LG-217,none,25,LED,China,1900
-Television,Samsung-39,none,85,VA,USA,1470
 Television,TCL,none,90,OLED,China,2100
+Telephone,S-10,Samsung,none,QLED,none,200
+Television,LG-217,none,25,LED,China,1900
+Telephone,J7,Samsung,none,QLED,none,630
 Television,RTI-16,none,130,ULED,USA,2500
+Telephone,Redmi-9A,Xiaomi,none,IMX-989,none,445
+Telephone,M-32,,none,LCD,none,315
+Television,LG-217,none,25,LED,China,1900
+Television,TCL,none,85,VA,USA,1470
+

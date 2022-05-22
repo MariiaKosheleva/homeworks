@@ -1,8 +1,6 @@
 package ua.kosheleva.module2.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class Television extends Product {
@@ -17,7 +15,7 @@ public class Television extends Product {
 
     @Override
     public String toString() {
-        return "\nSeries: " + getSeries() + " Diagonal: " + getDiagonal() +
+        return "\nTelevision series: " + getSeries() + " Diagonal: " + getDiagonal() +
                 " ScreenType: " + getScreenType() +
                 " Country: " + getCountry() +
                 " Price: " + getPrice();

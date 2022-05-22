@@ -14,7 +14,7 @@ public class ShopService {
 
     private static final ArrayList<Invoice> listOfInvoices = new ArrayList<>();
 
-    public void getData(String fileName){
+    public void getData(String fileName) {
         FileUtils fileUtils = new FileUtils();
         ArrayList<Product> products = (ArrayList<Product>) fileUtils.readCsvFile(fileName);
         createListOfInvoices(products);
@@ -44,7 +44,7 @@ public class ShopService {
         return invoice;
     }
 
-    public void getAnalyticalInformation(){
+    public void getAnalyticalInformation() {
         final AnalyticalData analiticalData = new AnalyticalData();
         System.out.println("\nAmount of sold telephones: " + analiticalData.soldProductsByCategories(listOfInvoices, "Telephone"));
         System.out.println("\nAmount of sold television: " + analiticalData.soldProductsByCategories(listOfInvoices, "Television"));

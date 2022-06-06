@@ -1,5 +1,6 @@
 package ua.kosheleva.hw24.service;
 
+import ua.kosheleva.hw24.dao.DeviceDao;
 import ua.kosheleva.hw24.model.Device;
 import ua.kosheleva.hw24.util.FactoryUtil;
 import ua.kosheleva.hw24.dao.FactoryDao;
@@ -8,9 +9,9 @@ import ua.kosheleva.hw24.model.Factory;
 
 import java.util.List;
 
+
 public class FactoryService {
     private static final FactoryDao factoryDao = new FactoryDao();
-
 
     public static void createFactoryInfrastructure() {
         final List<Factory> factories = FactoryUtil.createFactory();

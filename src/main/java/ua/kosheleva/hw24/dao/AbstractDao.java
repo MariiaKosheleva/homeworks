@@ -44,13 +44,4 @@ abstract class AbstractDao<T> {
         query.select(from);
         return entityManager.createQuery(query).getResultList();
     }
-
-    public void delete(T value) {
-        final EntityManager entityManager = HibernateFactoryUtil.getEntityManager();
-        final EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.remove(value);
-        entityManager.flush();
-        transaction.commit();
-    }
 }

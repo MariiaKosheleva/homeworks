@@ -10,13 +10,14 @@ import java.time.LocalDate;
 public class DeviceService {
     private static final DeviceDao deviceDao = new DeviceDao();
 
+    //delete device from database
+    public static void deleteDeviceFromDataBase(Integer index) {
+        deviceDao.deleteDevice(deviceDao.getAll().get(index).getId());
+    }
+
     public Device createDevice(String model, String type, Integer price, LocalDate date,
                                String description, Boolean availability, Factory factory) {
         return new Device(model, type, price, date, description, availability, factory);
-    }
-
-    public static void deleteDevice(Integer index) {
-        deviceDao.delete(deviceDao.getAll().get(index));
     }
 
     public static void changeDeviceInfo(Integer index) {

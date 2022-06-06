@@ -1,8 +1,8 @@
 package ua.kosheleva.hw24.dao;
 
+import ua.kosheleva.hw24.config.HibernateFactoryUtil;
 import ua.kosheleva.hw24.model.Device;
 import ua.kosheleva.hw24.model.Factory;
-import ua.kosheleva.hw24_trial.config.HibernateFactoryUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;

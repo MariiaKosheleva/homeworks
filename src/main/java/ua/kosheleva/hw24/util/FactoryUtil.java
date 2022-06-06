@@ -1,6 +1,5 @@
 package ua.kosheleva.hw24.util;
 
-import ua.kosheleva.hw24.dao.FactoryDao;
 import ua.kosheleva.hw24.model.Device;
 import ua.kosheleva.hw24.model.Factory;
 import ua.kosheleva.hw24.service.DeviceService;

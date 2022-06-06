@@ -1,10 +1,8 @@
 package ua.kosheleva.hw24;
 
 import ua.kosheleva.hw24.config.HibernateFactoryUtil;
-import ua.kosheleva.hw24.model.Factory;
 import ua.kosheleva.hw24.service.DeviceService;
 import ua.kosheleva.hw24.service.FactoryService;
-import ua.kosheleva.hw24.util.FactoryUtil;
 
 public class Main {
     public static void main(String[] args) {

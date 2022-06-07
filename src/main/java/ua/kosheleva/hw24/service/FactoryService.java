@@ -1,14 +1,11 @@
 package ua.kosheleva.hw24.service;
 
-import ua.kosheleva.hw24.dao.DeviceDao;
 import ua.kosheleva.hw24.model.Device;
 import ua.kosheleva.hw24.util.FactoryUtil;
 import ua.kosheleva.hw24.dao.FactoryDao;
 import ua.kosheleva.hw24.model.Factory;
 
-
 import java.util.List;
-
 
 public class FactoryService {
     private static final FactoryDao factoryDao = new FactoryDao();
@@ -21,12 +18,11 @@ public class FactoryService {
         }
     }
 
-    public static void getAmountOfDevicesForEachFactoryAndTheirPriceSum() {
-        factoryDao.getAll().forEach(factory -> System.out.println("\nFactory name: " + factory.getName() +
-                "\nAmount of devices on this factory: " + factory.getDeviceSet().size() +
-                "\nSum of devices' price on this factory: " + factory.getDeviceSet().stream()
-                .mapToInt(Device::getPrice)
-                .sum()));
+    public static void showAmountOfDevicesForEachFactoryAndTheirPriceSum() {
+        factoryDao.getAmountOfDevicesForEachFactoryAndTheirPriceSum().forEach(factory ->
+                System.out.println("\nFactory name: " + factory[0] +
+                        "\nAmount of devices on this factory: " + factory[1] +
+                        "\nSum of devices' price on this factory: " + factory[2]));
     }
 
     public static void showDevicesFromSpecificFactory(Integer index) {
@@ -35,7 +31,7 @@ public class FactoryService {
     }
 
     private static List<Device> getDevicesInfoFromSpecificFactory(Integer index) {
-        return factoryDao.getObjectsInfoFromFactory(factoryDao.getAll().get(index));
+        return factoryDao.getDevicesInfoFromFactory(factoryDao.getAll().get(index));
     }
 
     public static void getFactoryInfo(Integer index) {

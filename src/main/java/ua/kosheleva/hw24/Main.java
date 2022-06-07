@@ -1,7 +1,6 @@
 package ua.kosheleva.hw24;
 
 import ua.kosheleva.hw24.config.HibernateFactoryUtil;
-import ua.kosheleva.hw24.model.Factory;
 import ua.kosheleva.hw24.service.DeviceService;
 import ua.kosheleva.hw24.service.FactoryService;
 
@@ -15,6 +14,6 @@ public class Main {
         DeviceService.deleteDeviceFromDataBase(0);
         System.out.println(DeviceService.getDeviceInfo(0));
         FactoryService.showDevicesFromSpecificFactory(0);
-        FactoryService.getAmountOfDevicesForEachFactoryAndTheirPriceSum();
+        FactoryService.showAmountOfDevicesForEachFactoryAndTheirPriceSum();
     }
 }

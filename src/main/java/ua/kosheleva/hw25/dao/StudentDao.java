@@ -13,7 +13,7 @@ public class StudentDao extends AbstractDao<Student> {
         aClass = Student.class;
     }
 
-    public void getAllInfoAboutCertainStudent(String id) {
+    public List<Object> getAllInfoAboutCertainStudent(String id) {
         final EntityManager entityManager = HibernateFactoryUtil.getEntityManager();
         Query query = entityManager.createNativeQuery("SELECT student.id, student.studentName, " +
                 "universityGroup.universityGroupName, curator.curatorName, university.universityName " +
@@ -23,6 +23,6 @@ public class StudentDao extends AbstractDao<Student> {
                 "ON university.id = universitygroup.university_id) " +
                 "ON curator.id = universitygroup.curator_id WHERE student.id = :id");
         query.setParameter("id", id);
-        System.out.println(query.getResultList().toString());
+        return query.getResultList();
     }
 }

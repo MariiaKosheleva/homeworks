@@ -1,8 +1,6 @@
 package ua.kosheleva.hw25;
 
-
 import ua.kosheleva.hw25.config.HibernateFactoryUtil;
-import ua.kosheleva.hw25.dao.CuratorDao;
 import ua.kosheleva.hw25.service.*;
 
 public class Main {
@@ -15,9 +13,10 @@ public class Main {
     public static void main(String[] args) {
         HibernateFactoryUtil.init();
         universityService.createUniversityInfrastructure();
+        courseService.printCoursesFromSpecificRange();
+        curatorService.printAllTeachersBornBeforeXDateAndWithMoreThanYWorkExperience();
+        studentService.printAllInfoAboutCertainStudent(0);
+        universityGroupService.printAmountOfStudentsInEachGroup();
         universityService.print();
-        courseService.showCoursesFromSpecificRange();
-        curatorService.showAllTeachersBornBeforeXDateAndWithMoreThanYWorkExperience();
-       studentService.showAllInfoAboutCertainStudent(0);
     }
 }

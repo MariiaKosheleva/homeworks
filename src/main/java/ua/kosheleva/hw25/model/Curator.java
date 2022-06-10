@@ -3,7 +3,6 @@ package ua.kosheleva.hw25.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class Curator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")

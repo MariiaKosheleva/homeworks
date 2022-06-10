@@ -1,8 +1,6 @@
 package ua.kosheleva.hw25.dao;
 
-import org.hibernate.criterion.Restrictions;
 import ua.kosheleva.hw25.config.HibernateFactoryUtil;
-import ua.kosheleva.hw25.model.Course;
 import ua.kosheleva.hw25.model.Curator;
 
 import javax.persistence.EntityManager;

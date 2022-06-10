@@ -3,7 +3,6 @@ package ua.kosheleva.hw25.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -32,5 +31,10 @@ public class Student {
 
     public Student(String studentName) {
         this.studentName = studentName;
+    }
+
+    @Override
+    public String toString() {
+        return getStudentName();
     }
 }

@@ -15,7 +15,7 @@ public class CourseDao extends AbstractDao<Course> {
         aClass = Course.class;
     }
 
-    public List<Course> getAllCoursesFromSpecifiedRange(Integer minRangeComplexity, Integer maxRangeComplexity){
+    public List<Course> getAllCoursesFromSpecifiedRange(Integer minRangeComplexity, Integer maxRangeComplexity) {
         final EntityManager entityManager = HibernateFactoryUtil.getEntityManager();
         final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         final CriteriaQuery<Course> query = criteriaBuilder.createQuery(Course.class);

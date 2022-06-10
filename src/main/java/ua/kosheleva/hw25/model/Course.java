@@ -27,4 +27,9 @@ public class Course {
         this.courseName = courseName;
         this.complexity = complexity;
     }
+
+    @Override
+    public String toString() {
+        return getCourseName();
+    }
 }

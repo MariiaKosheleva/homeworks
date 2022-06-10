@@ -1,7 +1,5 @@
 package ua.kosheleva.hw25.service;
 
-
-import ua.kosheleva.hw25.dao.CourseDao;
 import ua.kosheleva.hw25.dao.CuratorDao;
 import ua.kosheleva.hw25.model.Curator;
 import ua.kosheleva.hw25.model.UniversityGroup;
@@ -13,12 +11,13 @@ public class CuratorService {
     private final static Random RANDOM = new Random();
     private final CuratorDao curatorDao = new CuratorDao();
 
-    public void showAllTeachersBornBeforeXDateAndWithMoreThanYWorkExperience(){
+    public void printAllTeachersBornBeforeXDateAndWithMoreThanYWorkExperience() {
         curatorDao.getAllTeachersBornBeforeXDateAndWithMoreThanYWorkExperience(1965, 11, 4, 3)
-                .forEach(curator -> { System.out.println("\nName: " + curator.getCuratorName()
-                        + "\nDate of birth: " + curator.getDateOfBirth()
-                        + "\nWork experience: " + curator.getWorkExperience());
-        });
+                .forEach(curator -> {
+                    System.out.println("\nName: " + curator.getCuratorName()
+                            + "\nDate of birth: " + curator.getDateOfBirth()
+                            + "\nWork experience: " + curator.getWorkExperience());
+                });
     }
 
     public void addCurator(UniversityGroup universityGroup) {

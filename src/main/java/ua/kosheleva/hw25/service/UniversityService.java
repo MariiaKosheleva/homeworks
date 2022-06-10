@@ -1,7 +1,7 @@
 package ua.kosheleva.hw25.service;
 
-
 import ua.kosheleva.hw25.dao.UniversityDao;
+import ua.kosheleva.hw25.model.Student;
 import ua.kosheleva.hw25.model.University;
 import ua.kosheleva.hw25.model.UniversityGroup;
 
@@ -14,10 +14,6 @@ public class UniversityService {
     private final UniversityDao universityDao = new UniversityDao();
     private final CourseService courseService = new CourseService();
 
-    private UniversityService step1() {
-        return this;
-    }
-
     public void createUniversityInfrastructure() {
         final List<University> universities = createUniversity();
 
@@ -28,7 +24,6 @@ public class UniversityService {
                 universityGroupService.createUniversityGroup("universityGroup2", university1);
         final UniversityGroup universityGroup3 =
                 universityGroupService.createUniversityGroup("universityGroup3", university1);
-
         final Set<UniversityGroup> universityGroups = new HashSet<>();
         universityGroups.add(universityGroup1);
         universityGroups.add(universityGroup2);
@@ -36,12 +31,16 @@ public class UniversityService {
         university1.setUniversityGroups(universityGroups);
 
         studentService.addStudents(universityGroup1, 2);
-        studentService.addStudents(universityGroup2, 4);
+        studentService.addStudents(universityGroup2, 3);
+        studentService.addStudents(universityGroup3, 4);
 
         curatorService.addCurator(universityGroup1);
         curatorService.addCurator(universityGroup2);
+        curatorService.addCurator(universityGroup3);
 
         universityGroup1.getStudents().forEach(student -> courseService.setCourse(student, 3));
+        universityGroup2.getStudents().forEach(student -> courseService.setCourse(student, 2));
+        universityGroup3.getStudents().forEach(student -> courseService.setCourse(student, 1));
 
         for (University university : universities) {
             universityDao.save(university);
@@ -56,18 +55,50 @@ public class UniversityService {
 
     public void print() {
         universityDao.getAll().forEach(university -> {
-            System.out.println(getFormattedString(university.getId(), university.getUniversityName(),
-                    university.getClass().getSimpleName()));
-            Optional.ofNullable(university.getUniversityGroups())
-                    .ifPresent(universityGroups -> universityGroups.forEach(universityGroup -> {
-                        System.out.println(getFormattedString(universityGroup.getId(), universityGroup.getUniversityGroupName(),
-                                universityGroup.getClass().getSimpleName()));
-                    }));
+            System.out.println("\nUniversity id: " + university.getId() +
+                    "\nUniversity name: " + university.getUniversityName());
+            getUniversityGroups(university);
+            getCurators(university);
+            getStudents(university);
+            getCourses(university);
+
         });
     }
 
-    private String getFormattedString(String id, String name, String className) {
-        return String.format("Class: %s%n ID: %s%n Name: %s%n",
-                className, id, name);
+    private void getCourses(University university) {
+        System.out.println("\nCourses in " + university.getUniversityName() + " by students in groups: ");
+        Optional.ofNullable(university.getUniversityGroups())
+                .ifPresent(universityGroups -> universityGroups.forEach(universityGroup -> {
+                    System.out.println(universityGroup.getUniversityGroupName() +
+                            ": " + universityGroup.getStudents().stream()
+                            .map(Student::getCourseSet)
+                            .toList());
+                }));
+    }
+
+    private void getStudents(University university) {
+        System.out.println("\nStudents from " + university.getUniversityName() + ": ");
+        Optional.ofNullable(university.getUniversityGroups())
+                .ifPresent(universityGroups -> universityGroups.forEach(universityGroup -> {
+                    System.out.println(universityGroup.getUniversityGroupName() +
+                            ": " + universityGroup.getStudents());
+                }));
+    }
+
+    private void getCurators(University university) {
+        System.out.println("\nCurators from " + university.getUniversityName() + ": ");
+        Optional.ofNullable(university.getUniversityGroups())
+                .ifPresent(universityGroups -> universityGroups.forEach(universityGroup -> {
+                    System.out.println(universityGroup.getCurator().getCuratorName());
+                }));
+    }
+
+    private void getUniversityGroups(University university) {
+        System.out.println("\nGroups id and names from " + university.getUniversityName() + ": ");
+        Optional.ofNullable(university.getUniversityGroups())
+                .ifPresent(universityGroups -> universityGroups.forEach(universityGroup -> {
+                    System.out.println(universityGroup.getId() +
+                            ", " + universityGroup.getUniversityGroupName());
+                }));
     }
 }

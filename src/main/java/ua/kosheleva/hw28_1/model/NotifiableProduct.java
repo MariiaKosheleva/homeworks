@@ -2,13 +2,7 @@ package ua.kosheleva.hw28_1.model;
 
 import ua.kosheleva.hw28_1.interfaces.IAddressForNotification;
 
-
 public class NotifiableProduct extends Product implements IAddressForNotification {
-
-    protected NotifiableProduct(NotifiableProductBuilder notifiableProductBuilder) {
-        super(notifiableProductBuilder);
-    }
-
     @Override
     public String generateAddressForNotification() {
         return "somerandommail@gmail.com";
@@ -25,25 +19,42 @@ public class NotifiableProduct extends Product implements IAddressForNotificatio
                 " }";
     }
 
-    public static class NotifiableProductBuilder extends Builder {
-        public NotifiableProductBuilder(long id, boolean available, String title, double price, String channel) {
-            super(id, available, title, price, channel);
+    public static class NotifiableProductBuilder {
+        private final NotifiableProduct notifiableProduct;
+
+        public NotifiableProductBuilder() {
+            notifiableProduct = new NotifiableProduct();
         }
 
-        public Product build() {
-            return new NotifiableProduct(this) {
-                @Override
-                public String getBasicInfo() {
-                    return "NotifiableProduct { " +
-                            "channel = '" + channel + '\'' +
-                            ", id = " + id +
-                            ", available = " + available +
-                            ", title = " + title + '\'' +
-                            ", price = " + price +
-                            " }";
-                }
-            };
+        public NotifiableProductBuilder setWithId(long id) {
+            notifiableProduct.setId(id);
+            return this;
         }
+
+        public NotifiableProductBuilder setWithAvailable(boolean available) {
+            notifiableProduct.setAvailable(available);
+            return this;
+        }
+
+        public NotifiableProductBuilder setWithTitle(String title) {
+            notifiableProduct.setTitle(title);
+            return this;
+        }
+
+        public NotifiableProductBuilder setWithPrice(double price) {
+            notifiableProduct.setPrice(price);
+            return this;
+        }
+
+        public NotifiableProductBuilder setWithChannel(String channel) {
+            notifiableProduct.setChannel(channel);
+            return this;
+        }
+
+        public NotifiableProduct build() {
+            return notifiableProduct;
+        }
+
     }
 }
 

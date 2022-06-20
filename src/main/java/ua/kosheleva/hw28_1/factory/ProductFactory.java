@@ -11,37 +11,33 @@ public class ProductFactory {
     static Random RANDOM = new Random();
 
     public Product getProduct(ProductType type) {
-        Product product = null;
+        Product product;
         switch (type) {
-            case NOTIFIABLE_PRODUCT -> {
-                product = createNotifiableProduct();
-            }
-            case PRODUCT_BUNDLE -> {
-                product = createProductBundle();
-            }
+            case NOTIFIABLE_PRODUCT -> product = createNotifiableProduct();
+            case PRODUCT_BUNDLE -> product = createProductBundle();
+            default -> throw new IllegalArgumentException("This type of product is illegal: " + type);
         }
         return product;
     }
 
-    private ProductBundle createProductBundle() {
-        long id = RANDOM.nextLong();
-        boolean available = RANDOM.nextBoolean();
-        String title = RANDOM.nextFloat() + "" + RANDOM.nextDouble();
-        double price = RANDOM.nextDouble();
-        String channel = RANDOM.nextBoolean() + "" + RANDOM.nextDouble();
-        int amount = RANDOM.nextInt(15);
-        return (ProductBundle) new ProductBundle.ProductBundleBuilder(id, available, title, price, channel)
-                .amount(amount)
+    private NotifiableProduct createNotifiableProduct() {
+        return new NotifiableProduct.NotifiableProductBuilder()
+                .setWithId(RANDOM.nextLong())
+                .setWithAvailable(RANDOM.nextBoolean())
+                .setWithTitle(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
+                .setWithPrice(RANDOM.nextDouble())
+                .setWithChannel(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
                 .build();
     }
 
-    private NotifiableProduct createNotifiableProduct() {
-        long id = RANDOM.nextLong();
-        boolean available = RANDOM.nextBoolean();
-        String title = RANDOM.nextFloat() + "" + RANDOM.nextDouble();
-        double price = RANDOM.nextDouble();
-        String channel = RANDOM.nextBoolean() + "" + RANDOM.nextDouble();
-        return (NotifiableProduct) new NotifiableProduct.NotifiableProductBuilder(id, available, title, price, channel)
+    private ProductBundle createProductBundle() {
+        return new ProductBundle.ProductBundleBuilder()
+                .setWithId(RANDOM.nextLong())
+                .setWithAvailable(RANDOM.nextBoolean())
+                .setWithTitle(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
+                .setWithPrice(RANDOM.nextDouble())
+                .setWithChannel(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
+                .setWithAmount(RANDOM.nextInt(15))
                 .build();
     }
 }

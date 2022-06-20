@@ -1,14 +1,10 @@
 package ua.kosheleva.hw28_1.model;
 
+import lombok.Setter;
 import ua.kosheleva.hw28_1.interfaces.IAmountInBundle;
-
+@Setter
 public class ProductBundle extends Product implements IAmountInBundle {
     protected int amount;
-
-    protected ProductBundle(ProductBundleBuilder productBundleBuilder) {
-        super(productBundleBuilder);
-        this.amount = productBundleBuilder.amount;
-    }
 
     @Override
     public int getAmountInBundle() {
@@ -27,32 +23,45 @@ public class ProductBundle extends Product implements IAmountInBundle {
                 " }";
     }
 
-    public static class ProductBundleBuilder extends Builder {
-        protected int amount;
+    public static class ProductBundleBuilder {
+        private final ProductBundle productBundle;
 
-        public ProductBundleBuilder(long id, boolean available, String title, double price, String channel) {
-            super(id, available, title, price, channel);
+        public ProductBundleBuilder() {
+            productBundle = new ProductBundle();
         }
 
-        public ProductBundleBuilder amount(int value) {
-            amount = value;
+        public ProductBundleBuilder setWithId(long id) {
+            productBundle.setId(id);
             return this;
         }
 
-        public Product build() {
-            return new ProductBundle(this) {
-                @Override
-                public String getBasicInfo() {
-                    return "ProductBundle { " +
-                            "channel = " + channel + '\'' +
-                            ", id = " + id +
-                            ", available = " + available +
-                            ", title = " + title + '\'' +
-                            ", price = " + price +
-                            ", amountInBundle = " + amount +
-                            " }";
-                }
-            };
+        public ProductBundleBuilder setWithAvailable(boolean available) {
+            productBundle.setAvailable(available);
+            return this;
+        }
+
+        public ProductBundleBuilder setWithTitle(String title) {
+            productBundle.setTitle(title);
+            return this;
+        }
+
+        public ProductBundleBuilder setWithPrice(double price) {
+            productBundle.setPrice(price);
+            return this;
+        }
+
+        public ProductBundleBuilder setWithChannel(String channel) {
+            productBundle.setChannel(channel);
+            return this;
+        }
+
+        public ProductBundleBuilder setWithAmount(int amount) {
+            productBundle.setAmount(amount);
+            return this;
+        }
+
+        public ProductBundle build() {
+            return productBundle;
         }
     }
 }

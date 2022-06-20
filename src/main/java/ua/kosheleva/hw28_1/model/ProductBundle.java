@@ -30,32 +30,32 @@ public class ProductBundle extends Product implements IAmountInBundle {
             productBundle = new ProductBundle();
         }
 
-        public ProductBundleBuilder setWithId(long id) {
+        public ProductBundleBuilder setIdValue(long id) {
             productBundle.setId(id);
             return this;
         }
 
-        public ProductBundleBuilder setWithAvailable(boolean available) {
+        public ProductBundleBuilder setAvailableValue(boolean available) {
             productBundle.setAvailable(available);
             return this;
         }
 
-        public ProductBundleBuilder setWithTitle(String title) {
+        public ProductBundleBuilder setTitleValue(String title) {
             productBundle.setTitle(title);
             return this;
         }
 
-        public ProductBundleBuilder setWithPrice(double price) {
+        public ProductBundleBuilder setPriceValue(double price) {
             productBundle.setPrice(price);
             return this;
         }
 
-        public ProductBundleBuilder setWithChannel(String channel) {
+        public ProductBundleBuilder setChannelValue(String channel) {
             productBundle.setChannel(channel);
             return this;
         }
 
-        public ProductBundleBuilder setWithAmount(int amount) {
+        public ProductBundleBuilder setAmountValue(int amount) {
             productBundle.setAmount(amount);
             return this;
         }

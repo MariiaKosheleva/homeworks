@@ -26,27 +26,27 @@ public class NotifiableProduct extends Product implements IAddressForNotificatio
             notifiableProduct = new NotifiableProduct();
         }
 
-        public NotifiableProductBuilder setWithId(long id) {
+        public NotifiableProductBuilder setIdValue(long id) {
             notifiableProduct.setId(id);
             return this;
         }
 
-        public NotifiableProductBuilder setWithAvailable(boolean available) {
+        public NotifiableProductBuilder setAvailableValue(boolean available) {
             notifiableProduct.setAvailable(available);
             return this;
         }
 
-        public NotifiableProductBuilder setWithTitle(String title) {
+        public NotifiableProductBuilder setTitleValue(String title) {
             notifiableProduct.setTitle(title);
             return this;
         }
 
-        public NotifiableProductBuilder setWithPrice(double price) {
+        public NotifiableProductBuilder setPriceValue(double price) {
             notifiableProduct.setPrice(price);
             return this;
         }
 
-        public NotifiableProductBuilder setWithChannel(String channel) {
+        public NotifiableProductBuilder setChannelValue(String channel) {
             notifiableProduct.setChannel(channel);
             return this;
         }

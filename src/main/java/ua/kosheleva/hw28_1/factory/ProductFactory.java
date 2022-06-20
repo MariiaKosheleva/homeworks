@@ -22,22 +22,22 @@ public class ProductFactory {
 
     private NotifiableProduct createNotifiableProduct() {
         return new NotifiableProduct.NotifiableProductBuilder()
-                .setWithId(RANDOM.nextLong())
-                .setWithAvailable(RANDOM.nextBoolean())
-                .setWithTitle(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
-                .setWithPrice(RANDOM.nextDouble())
-                .setWithChannel(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
+                .setIdValue(RANDOM.nextLong())
+                .setAvailableValue(RANDOM.nextBoolean())
+                .setTitleValue(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
+                .setPriceValue(RANDOM.nextDouble())
+                .setChannelValue(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
                 .build();
     }
 
     private ProductBundle createProductBundle() {
         return new ProductBundle.ProductBundleBuilder()
-                .setWithId(RANDOM.nextLong())
-                .setWithAvailable(RANDOM.nextBoolean())
-                .setWithTitle(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
-                .setWithPrice(RANDOM.nextDouble())
-                .setWithChannel(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
-                .setWithAmount(RANDOM.nextInt(15))
+                .setIdValue(RANDOM.nextLong())
+                .setAvailableValue(RANDOM.nextBoolean())
+                .setTitleValue(RANDOM.nextFloat() + "" + RANDOM.nextDouble())
+                .setPriceValue(RANDOM.nextDouble())
+                .setChannelValue(RANDOM.nextBoolean() + "" + RANDOM.nextDouble())
+                .setAmountValue(RANDOM.nextInt(15))
                 .build();
     }
 }

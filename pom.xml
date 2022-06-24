@@ -71,7 +71,6 @@
             <artifactId>postgresql</artifactId>
             <version>42.3.3</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -95,4 +94,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

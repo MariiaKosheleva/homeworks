@@ -24,9 +24,11 @@ public class UniversityInfrastructureService {
                 universityGroupService.createUniversityGroup("universityGroup1", university1);
         final UniversityGroup universityGroup2 =
                 universityGroupService.createUniversityGroup("universityGroup2", university1);
+
         final Set<UniversityGroup> universityGroups = new HashSet<>();
         universityGroups.add(universityGroup1);
         universityGroups.add(universityGroup2);
+
         university1.setUniversityGroups(universityGroups);
 
         studentService.addStudents(universityGroup1, 2);

@@ -15,6 +15,7 @@ public class ThreadPrimeNumbers extends Thread {
         return primesCount;
     }
 
+    @Override
     public void run() {
         for (int number : numbers) {
             if (checkPrimeNumbers(number)) {

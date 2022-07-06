@@ -4,7 +4,7 @@ import lombok.SneakyThrows;
 import ua.kosheleva.hw30.task1.model.ThreadGreeter;
 
 public class ThreadGreeterUtil {
-    private final int THREADS_COUNT = 50;
+    private static final int THREADS_COUNT = 50;
 
     public void printThread() {
         runThreads(createThreads());

@@ -9,10 +9,6 @@ public class ThreadGreeter extends Thread {
 
     @Override
     public void run() {
-        printIndex();
-    }
-
-    private synchronized void printIndex() {
         System.out.println("Hello from thread " + index);
     }
 }

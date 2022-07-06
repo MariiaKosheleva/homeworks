@@ -26,7 +26,7 @@ public class Hippodrome implements Runnable {
         getPlace();
     }
 
-    public void getPlace() {
+    private void getPlace() {
         for (int i = 0; i < horses.size(); i++) {
             if (horses.get(i).equalsIgnoreCase("pool-1-thread-" + HORSE_TO_BET)) {
                 horseToBetResult = horses.indexOf(horses.get(i));

@@ -24,25 +24,21 @@ public class UniversityInfrastructureService {
                 universityGroupService.createUniversityGroup("universityGroup1", university1);
         final UniversityGroup universityGroup2 =
                 universityGroupService.createUniversityGroup("universityGroup2", university1);
-        final UniversityGroup universityGroup3 =
-                universityGroupService.createUniversityGroup("universityGroup3", university1);
+
         final Set<UniversityGroup> universityGroups = new HashSet<>();
         universityGroups.add(universityGroup1);
         universityGroups.add(universityGroup2);
-        universityGroups.add(universityGroup3);
+
         university1.setUniversityGroups(universityGroups);
 
         studentService.addStudents(universityGroup1, 2);
         studentService.addStudents(universityGroup2, 3);
-        studentService.addStudents(universityGroup3, 4);
 
         curatorService.addCurator(universityGroup1);
         curatorService.addCurator(universityGroup2);
-        curatorService.addCurator(universityGroup3);
 
-        universityGroup1.getStudents().forEach(student -> courseService.setCourse(student, 3));
-        universityGroup2.getStudents().forEach(student -> courseService.setCourse(student, 2));
-        universityGroup3.getStudents().forEach(student -> courseService.setCourse(student, 1));
+        universityGroup1.getStudents().forEach(student -> courseService.setCourse(student, 1));
+        universityGroup2.getStudents().forEach(student -> courseService.setCourse(student, 1));
 
         for (University university : universities) {
             universityDao.save(university);
@@ -51,7 +47,6 @@ public class UniversityInfrastructureService {
 
     private List<University> createUniversity() {
         final University university1 = new University("university1");
-        final University university2 = new University("university2");
-        return Arrays.asList(university1, university2);
+        return List.of(university1);
     }
 }

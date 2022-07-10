@@ -6,7 +6,11 @@
 
     <groupId>aLevel</groupId>
     <artifactId>homeworks</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>src/main/java/ua/kosheleva/hw33/servlets</module>
+    </modules>
 
     <properties>
 
@@ -78,23 +82,25 @@
             <artifactId>postgresql</artifactId>
             <version>42.3.3</version>
         </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.6.8.Final</version>
         </dependency>
+
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.10</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
             <version>8.5.11</version>
         </dependency>
+
     </dependencies>
 
     <build>

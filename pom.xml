@@ -100,7 +100,6 @@
             <artifactId>flyway-core</artifactId>
             <version>8.5.11</version>
         </dependency>
-
     </dependencies>
 
     <build>

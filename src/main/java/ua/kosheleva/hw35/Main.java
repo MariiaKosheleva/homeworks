@@ -6,8 +6,8 @@ public class Main {
                 1. Login to the account:
                     POST/api/authorization
                     {
-                        "user": "newAuthorId",
-                        "password": "newAuthorName"
+                        "user": "User",
+                        "password": "Password",
                      }
                 2. Watch all books:
                     GET/api/books

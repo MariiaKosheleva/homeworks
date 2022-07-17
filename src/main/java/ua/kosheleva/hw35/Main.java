@@ -4,7 +4,11 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("""
                 1. Login to the account:
-                    GET/api/users?user={user}&password={password}
+                    POST/api/authorization
+                    {
+                        "user": "newAuthorId",
+                        "password": "newAuthorName"
+                     }
                 2. Watch all books:
                     GET/api/books
                 3. Filter books by the name:
@@ -25,14 +29,36 @@ public class Main {
                 10. Watch certain book of the certain author:
                      GET/api/authors/{id}/books/{id}
                 11. Create a new book:
-                     POST/api/books?id={id}
+                     POST/api/books
+                     {
+                        "id": "newBookId",
+                        "name": "newBookName",
+                        "author": "newAuthor",
+                        "year": "newYearValue"
+                     }
                 12. Add book to the certain author:
-                     POST/api/authors/{id}/books?id={id}
+                     POST/api/authors/{id}/books
+                     {
+                        "id": "newBookId",
+                        "name": "newBookName",
+                        "author": "newAuthor",
+                        "year": "newYearValue"
+                     }
                 13. Update the certain author:
                      PUT/api/authors/{id}
+                     {
+                        "id": "newAuthorId",
+                        "name": "newAuthorName"
+                     }
                 14. Delete the certain book:
                      DELETE/api/books/{id}
                 15. Create many books:
-                     POST/api/books""");
+                     POST/api/books
+                     {
+                        "id": "newBookId-1", "newBookId-2", "newBookId-3",
+                        "name": "newBookName-1", "newBookName-2", "newBookName-3",
+                        "author": "newAuthor-1", "newAuthor-2", "newAuthor-3",
+                        "year": "newYearValue-1", "newYearValue-2", "newYearValue-3"
+                     }""");
     }
 }

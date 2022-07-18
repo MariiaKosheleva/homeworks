@@ -31,10 +31,12 @@ public class Main {
                 11. Create a new book:
                      POST/api/books
                      {
-                        "id": "newBookId",
-                        "name": "newBookName",
-                        "author": "newAuthor",
-                        "year": "newYearValue"
+                        {
+                            "id": "newBookId",
+                            "name": "newBookName",
+                            "author": "newAuthor",
+                            "year": "newYearValue"
+                        }
                      }
                 12. Add book to the certain author:
                      POST/api/authors/{id}/books

@@ -31,26 +31,10 @@ public class Main {
                 11. Create a new book:
                      POST/api/books
                      {
-                        [
-                            {
-                                "id": "newBookId-1",
-                                "name": "newBookName-1",
-                                "author": "newAuthor-1",
-                                "year": "newYearValue-1"
-                            },
-                            {
-                                "id": "newBookId-2",
-                                "name": "newBookName-2",
-                                "author": "newAuthor-2",
-                                "year": "newYearValue-2"
-                            },
-                            {
-                                "id": "newBookId-3",
-                                "name": "newBookName-3",
-                                "author": "newAuthor-3",
-                                "year": "newYearValue-3"
-                            }
-                        ]
+                        "id": "newBookId",
+                        "name": "newBookName",
+                        "author": "newAuthor",
+                        "year": "newYearValue"
                      }
                 12. Add book to the certain author:
                      POST/api/authors/{id}/books
@@ -71,10 +55,26 @@ public class Main {
                 15. Create many books:
                      POST/api/books
                      {
-                        "id": "newBookId-1", "newBookId-2", "newBookId-3",
-                        "name": "newBookName-1", "newBookName-2", "newBookName-3",
-                        "author": "newAuthor-1", "newAuthor-2", "newAuthor-3",
-                        "year": "newYearValue-1", "newYearValue-2", "newYearValue-3"
+                        [
+                            {
+                                "id": "newBookId-1",
+                                "name": "newBookName-1",
+                                "author": "newAuthor-1",
+                                "year": "newYearValue-1"
+                            },
+                            {
+                                "id": "newBookId-2",
+                                "name": "newBookName-2",
+                                "author": "newAuthor-2",
+                                "year": "newYearValue-2"
+                            },
+                            {
+                                "id": "newBookId-3",
+                                "name": "newBookName-3",
+                                "author": "newAuthor-3",
+                                "year": "newYearValue-3"
+                            }
+                        ]
                      }""");
     }
 }

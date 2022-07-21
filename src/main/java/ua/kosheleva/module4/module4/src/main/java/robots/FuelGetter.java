@@ -1,6 +1,6 @@
 package robots;
 
-import model.Factory;
+import factory.Factory;
 
 import java.util.Random;
 

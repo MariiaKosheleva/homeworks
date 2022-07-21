@@ -1,4 +1,4 @@
-import model.Factory;
+import factory.Factory;
 
 public class Main {
     private static final Factory factory = new Factory();

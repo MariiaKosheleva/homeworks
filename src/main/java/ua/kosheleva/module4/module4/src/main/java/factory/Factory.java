@@ -1,7 +1,8 @@
-package model;
+package factory;
 
 import dao.PartDao;
 import lombok.SneakyThrows;
+import model.Part;
 import robots.BasicStructureAssembler;
 import robots.ChipProgrammer;
 import robots.PartShaper;

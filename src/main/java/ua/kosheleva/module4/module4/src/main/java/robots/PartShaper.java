@@ -1,8 +1,7 @@
 package robots;
 
 import lombok.SneakyThrows;
-import model.Factory;
-import robots.FuelGetter;
+import factory.Factory;
 
 import java.util.Random;
 import java.util.concurrent.Callable;
